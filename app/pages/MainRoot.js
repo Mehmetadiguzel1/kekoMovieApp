@@ -44,7 +44,7 @@ class MainRoot extends Component {
         initialRouteName="Home"
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: "#FE9901",
+          tabBarActiveTintColor: "#FF6200",
           tabBarInactiveTintColor: "#484747",
         }}
       >
