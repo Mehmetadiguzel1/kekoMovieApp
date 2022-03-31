@@ -14,7 +14,11 @@ class MainRoot extends Component {
     return (
       <Tab.Navigator
         initialRouteName="Home"
-        screenOptions={{ headerShown: false, tabBarActiveTintColor: "#F35200" }}
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: "#F35200",
+          tabBarInactiveTintColor: "#484747",
+        }}
       >
         <Tab.Screen
           options={{
