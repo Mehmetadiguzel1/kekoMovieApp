@@ -5,14 +5,37 @@ import {
   SafeAreaView,
   Image,
   ScrollView,
+  TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
 import Constants from "expo-constants";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 export default function MovieDetail({ navigation, route }) {
   const movieItem = route.params.item;
+  var genres = "";
+  movieItem.genres.map((genre, index) => {
+    genres += genre + (index < movieItem.genres.length - 1 ? "," : "");
+  });
   return (
     <View style={styles.container}>
       <ScrollView>
+        <TouchableWithoutFeedback onPress={() => navigation.pop()}>
+          <MaterialCommunityIcons
+            style={{
+              position: "absolute",
+              top: Constants.statusBarHeight + 10,
+              left: 10,
+              zIndex: 1,
+              paddingRight:10,
+              paddingBottom:10,
+              color: "#fff",
+            }}
+            name="chevron-left"
+            size={34}
+            color={"fff"}
+          />
+        </TouchableWithoutFeedback>
         <Image
           style={styles.poster}
           resizeMode={"cover"}
@@ -39,7 +62,7 @@ export default function MovieDetail({ navigation, route }) {
           >
             <View style={{ flexWrap: "wrap", flexDirection: "column" }}>
               <Text>{movieItem.title}</Text>
-              <Text>{movieItem.title}</Text>
+              <Text>{genres}</Text>
             </View>
             <View
               style={{
